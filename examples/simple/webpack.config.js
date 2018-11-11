@@ -1,10 +1,9 @@
 const path = require( 'path' )
 const webpack = require( 'webpack' )
 const { webpackHelper } = require( '@venkatperi/webpack-helper' )
-const pkg = require( './package.json' )
 
 const cwd = __dirname
-let buildDir = 'dist'
+const buildDir = 'dist'
 
 const modules = {
   mode: true,
@@ -18,20 +17,21 @@ const modules = {
   devServer: true,
   misc: true,
   dev: true,
+  copy: { args: [[{ from: 'index.html' }]] },
   prod: true,
 }
-
 const variants = [
-  'cjs',
   'umd',
 ]
 
 module.exports = webpackHelper( variants, modules, cwd, buildDir, webpack, ( config ) => {
   config
-    .entry( 'vue-xterm' )
-    .add( './src/index.ts' )
+    .entry( 'simple-example' )
+    .add( './src/main.ts' )
 
   config.output
-    .path( path.resolve( __dirname, './dist' ) );
+    .path( path.resolve( __dirname, './dist' ) )
+    .publicPath( 'umd' )
 } )
+
 

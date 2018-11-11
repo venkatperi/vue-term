@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "declaration": false,
+    "sourceMap": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictFunctionTypes": false,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es2015",
+    "experimentalDecorators": true
+  },
+  "types": [
+    "node"
+  ],
+  "lib": [
+    "es2017", "dom"
+  ],
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
